@@ -1,0 +1,37 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ .Chart.Name }}
+  labels:
+    crunchbase.com/service: {{ .Chart.Name }}
+spec:
+  replicas: {{ .Values.replicas }}
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate
+  template:
+    metadata:
+      name: {{ .Chart.Name }}
+      labels:
+        crunchbase.com/service: {{ .Chart.Name }}
+    spec:
+      securityContext:
+        privileged: true
+      containers:
+        - name: spinnaker-cd-deployment
+          image: 861597889956.dkr.ecr.us-east-1.amazonaws.com/spinnaker-cd-deployment:{{ .Values.tag }}
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SERVICE_NAME
+              value: {{ .Chart.Name | quote }}
+          volumeMounts:
+            - mountPath: /var/run/docker.sock
+              name: docker
+      volumes:
+        - name: docker
+          hostPath:
+            path: /var/run/docker.sock

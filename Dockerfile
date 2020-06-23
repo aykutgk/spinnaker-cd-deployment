@@ -13,6 +13,6 @@ RUN cp -r /tmp/node_modules /app/node_modules
 
 ADD . .
 
-EXPOSE 8080
+EXPOSE 3000
 
 CMD [ "yarn", "start" ]
