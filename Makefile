@@ -41,22 +41,21 @@ push: build
 	docker tag $(SERVICE_NAME):latest $(ECR_REPO_URL):$(TAG)
 	docker push $(ECR_REPO_URL):$(TAG)
 unit-test-environment-up:
-	docker-compose -f $(DOCKER_COMPOSE_FILE) down
-	docker-compose -f $(DOCKER_COMPOSE_FILE) up --build -d
+	echo "skip"
 unit-test-environment-down:
-	docker-compose -f $(DOCKER_COMPOSE_FILE) down
+	echo "skip"
 unit-test-run:
-	docker-compose -f $(DOCKER_COMPOSE_FILE) exec -T $(SERVICE_NAME) /test.sh
+	echo "skip"
 unit-test-export-results:
 	echo "skip"
 integration-test-environment-up:
-	helm install cbchartrepo/worldbuilder.clientapp_pr --name $(NAMESPACE) --namespace $(NAMESPACE) --set authservice.tag=$(TAG) --set authservice.replicas=1 --set authservice.memory_limit="4Gi" --set authservice.cpu_limit="2"  --set gateway.elb_enabled=true --set workflowservice-background-worker.replicas=0 --wait --timeout 1500
+	echo "skip"
 integration-test-environment-down:
-	helm delete $(NAMESPACE) --purge --timeout 1500
+	echo "skip"
 integration-test-run:
-	kubectl exec deploy/$(SERVICE_NAME) /test.sh -n $(NAMESPACE)
+	echo "skip"
 integration-test-get-world-url:
-	kubectl get svc gateway-elb -n $(NAMESPACE) -o jsonpath='{.status.loadBalancer.ingress[*].hostname}'
+	echo "skip"
 code-analysis-check:
 	echo "skip"
 style-check:

@@ -1,0 +1,7 @@
+tag: latest
+
+dns_name: spinnaker-cd-deployment.crunchbase.io
+
+environment: development
+
+replicas: 2
