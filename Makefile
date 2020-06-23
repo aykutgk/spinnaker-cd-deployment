@@ -3,7 +3,7 @@
 TIMESTAMP=$(shell date +%s)
 
 SERVICE_NAME="spinnaker-cd-deployment"
-HELM_CHART_PATH = "build/chart/$(SERVICE_NAME)/"
+HELM_CHART_PATH = "build/charts/$(SERVICE_NAME)/"
 
 ECR_REPO_URL="861597889956.dkr.ecr.us-east-1.amazonaws.com/$(SERVICE_NAME)"
 
