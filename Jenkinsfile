@@ -1,3 +1,3 @@
 @Library('sharedLibrary@master') _
 
-JenkinsSlave('auth-service', '/')
+CIPipelineV1('spinnaker-cd-deployment', '/')
