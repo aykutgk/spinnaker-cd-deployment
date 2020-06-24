@@ -1,3 +1,3 @@
 @Library('sharedLibrary@master') _
 
-CIPipelineV1('spinnaker-cd-deployment', 'staging.yaml')
+CIPipelineV1('spinnaker-cd-deployment')
