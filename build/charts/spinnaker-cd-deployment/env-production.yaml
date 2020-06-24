@@ -1,1 +1,3 @@
 environment: production
+
+dns_name: spinnaker-cd-deployment-prod.crunchbase.io
