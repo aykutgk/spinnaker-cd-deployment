@@ -17,8 +17,6 @@ spec:
       labels:
         crunchbase.com/service: {{ .Chart.Name }}
     spec:
-      securityContext:
-        privileged: true
       containers:
         - name: spinnaker-cd-deployment
           image: 861597889956.dkr.ecr.us-east-1.amazonaws.com/spinnaker-cd-deployment:{{ .Values.tag }}
