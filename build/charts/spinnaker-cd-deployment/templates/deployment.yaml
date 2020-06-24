@@ -29,8 +29,16 @@ spec:
           env:
             - name: SERVICE_NAME
               value: {{ .Chart.Name | quote }}
-            - name: SERVICE_NAME
+            - name: ENVIRONMENT_NAME
               value: {{ .Values.environment | quote }}
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: IMAGE_TAG
+              valueFrom:
+                fieldRef:
+                  fieldPath: spec.template.spec.containers[0].image
           volumeMounts:
             - mountPath: /var/run/docker.sock
               name: docker
