@@ -28,6 +28,8 @@ spec:
           env:
             - name: SERVICE_NAME
               value: {{ .Chart.Name | quote }}
+            - name: SERVICE_NAME
+              value: {{ .Values.environment | quote }}
           volumeMounts:
             - mountPath: /var/run/docker.sock
               name: docker
