@@ -5,6 +5,9 @@ metadata:
   labels:
     crunchbase.com/service: {{ .Chart.Name }}
 spec:
+  selector:
+    matchLabels:
+      crunchbase.com/service: {{ .Chart.Name }}
   replicas: {{ .Values.replicas }}
   strategy:
     rollingUpdate:
