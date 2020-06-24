@@ -11,10 +11,10 @@ metadata:
     service.beta.kubernetes.io/aws-load-balancer-healthcheck-healthy-threshold: "2"
     service.beta.kubernetes.io/aws-load-balancer-healthcheck-interval: "10"
     service.beta.kubernetes.io/aws-load-balancer-healthcheck-timeout: "5"
-  {{- if .Values.dns_name }}
-  external-dns.alpha.kubernetes.io/hostname: {{ .Values.dns_name | quote }}
-  external-dns.alpha.kubernetes.io/ttl: "60"
-  {{- end }}
+    {{- if .Values.dns_name }}
+    external-dns.alpha.kubernetes.io/hostname: {{ .Values.dns_name | quote }}
+    external-dns.alpha.kubernetes.io/ttl: "60"
+    {{- end }}
 spec:
   type: LoadBalancer
   selector:
