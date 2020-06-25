@@ -9,6 +9,7 @@ router.get('/', function (req, res, next) {
         environment: process.env.ENVIRONMENT_NAME,
         pod: process.env.POD_NAME,
         image: process.env.IMAGE_TAG,
+        message: "Application Version 1."
     })
 });
 
